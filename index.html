@@ -30,7 +30,7 @@
             height: 100%;
             background-color: #000;
             z-index: 10;
-            transition: opacity 2s ease-in-out;
+            transition: opacity 2.5s ease-in-out;
         }
 
         /* Flicker Animation */
@@ -51,7 +51,7 @@
             position: fixed;
             bottom: 40px;
             right: 50px;
-            color: #d48c48; /* Muted orange matching the sunset */
+            color: #fff; /* Changed to stark white for perfect legibility */
             font-size: 1.2rem;
             letter-spacing: 2px;
             opacity: 0;
@@ -61,7 +61,7 @@
         }
 
         #here-text:hover {
-            color: #fff;
+            color: #d48c48; /* Beautiful warm gold on hover */
         }
 
         /* Main Content Container */
@@ -71,8 +71,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Make sure the path matches where your image is saved */
-            background-image: url('Sunset/Sunset-12.jpg'); 
+            background-image: url('Sunset/Sunset-12.jpg'); /* Adjust path as needed */
             background-size: cover;
             background-position: center bottom;
             display: flex;
@@ -81,12 +80,12 @@
             align-items: center;
             opacity: 0;
             z-index: 1;
-            transition: opacity 2.5s ease-in-out;
+            transition: opacity 3s ease-in-out;
         }
 
         /* Typography & Layout */
         h1 {
-            color: #1a1a1a; /* Dark charcoal for contrast against the bright sky */
+            color: #fff; /* Stark white font for maximum visibility */
             font-size: clamp(2rem, 4vw, 3.5rem);
             letter-spacing: 3px;
             text-transform: lowercase;
@@ -106,9 +105,9 @@
 
         .btn {
             padding: 10px 40px;
-            color: #1a1a1a;
+            color: #fff; /* White text for clear base visibility */
             text-decoration: none;
-            border: 1px solid rgba(26, 26, 26, 0.4);
+            border: 1.5px solid #fff; /* Solid white border, slightly thicker and solid */
             font-size: 1.1rem;
             letter-spacing: 1px;
             text-transform: lowercase;
@@ -118,9 +117,9 @@
         }
 
         .btn:hover {
-            background-color: #1a1a1a;
-            color: #e5b078; /* Soft sunset gold on hover */
-            border-color: #1a1a1a;
+            background-color: #fff; /* Fill with white background on hover */
+            color: #d48c48; /* Warm gold text on white background - elegant contrast */
+            border-color: #d48c48; /* Gold border on hover for consistency */
         }
 
         /* Revealed State Classes */
@@ -158,13 +157,13 @@
             const hereText = document.getElementById('here-text');
             const body = document.body;
 
-            // 1. Initial pause on the pitch black screen (Wait 2 seconds)
+            // 1. Initial pause (Wait 2 seconds)
             setTimeout(() => {
                 
-                // 2. Trigger the flicker animation
+                // 2. Flicker animation
                 overlay.classList.add('flicker');
 
-                // 3. Fade in the word "here." right after the flicker ends
+                // 3. Fade in "here." right after the flicker ends
                 setTimeout(() => {
                     hereText.style.opacity = '1';
                 }, 800);
@@ -177,14 +176,10 @@
                 body.classList.add('revealed');
             };
 
-            // 5. Reveal the page automatically after a few seconds of "here." being visible
-            const autoReveal = setTimeout(() => {
-                revealPage();
-            }, 5500);
+            // 5. Automatic reveal removed: only clicking triggers the reveal now
 
-            // Optional: Allow the user to click "here." to skip the waiting time
+            // 6. Reveal the page on click handler (REMOVED clearTimeout logic)
             hereText.addEventListener('click', () => {
-                clearTimeout(autoReveal);
                 revealPage();
             });
         });
