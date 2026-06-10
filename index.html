@@ -46,12 +46,12 @@
             100% { opacity: 1; }
         }
 
-        /* 'Here' Trigger Text */
-        #here-text {
+        /* 'choose.' Trigger Text */
+        #choose-text {
             position: fixed;
             bottom: 40px;
             right: 50px;
-            color: #fff; /* Changed to stark white for perfect legibility */
+            color: #fff;
             font-size: 1.2rem;
             letter-spacing: 2px;
             opacity: 0;
@@ -60,8 +60,8 @@
             transition: opacity 1s ease, color 0.3s ease;
         }
 
-        #here-text:hover {
-            color: #d48c48; /* Beautiful warm gold on hover */
+        #choose-text:hover {
+            color: #888; /* Subtle grey on hover */
         }
 
         /* Main Content Container */
@@ -71,9 +71,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('Sunset/Sunset-12.jpg'); /* Adjust path as needed */
-            background-size: cover;
-            background-position: center bottom;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -83,43 +80,97 @@
             transition: opacity 3s ease-in-out;
         }
 
-        /* Typography & Layout */
+        /* Typography */
         h1 {
-            color: #fff; /* Stark white font for maximum visibility */
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            letter-spacing: 3px;
+            color: #fff;
+            font-size: clamp(1.2rem, 2vw, 2rem);
+            letter-spacing: 4px;
             text-transform: lowercase;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 2s ease 1s, transform 2s ease 1s;
+            position: absolute;
+            top: 10%;
         }
 
-        .btn-container {
+        /* Skewed Cross - Pure CSS */
+        .cross-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 2.5s ease 1.2s, transform 2.5s ease 1.2s;
+            margin-bottom: 40px;
+        }
+
+        /* The vertical-ish line */
+        .line-v {
+            position: absolute;
+            top: 5%;
+            left: 42%;
+            width: 2px;
+            height: 90%;
+            background-color: #fff;
+            transform: rotate(14deg); /* Skewed angle */
+        }
+
+        /* The horizontal-ish line */
+        .line-h {
+            position: absolute;
+            top: 55%;
+            left: 5%;
+            width: 90%;
+            height: 2px;
+            background-color: #fff;
+            transform: rotate(-9deg); /* Skewed angle, not perfectly crossed */
+        }
+
+        /* The Geometric Bar Links */
+        .bar-container {
             display: flex;
-            gap: 40px;
+            gap: 80px;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 2s ease 1.5s, transform 2s ease 1.5s;
+            transition: opacity 2s ease 1.8s, transform 2s ease 1.8s;
+            height: 80px; /* Gives a fixed area so scaling doesn't shift layout */
         }
 
-        .btn {
-            padding: 10px 40px;
-            color: #fff; /* White text for clear base visibility */
-            text-decoration: none;
-            border: 1.5px solid #fff; /* Solid white border, slightly thicker and solid */
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: lowercase;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+        .bar-link {
+            display: block;
+            background-color: #fff;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background-color: #fff; /* Fill with white background on hover */
-            color: #d48c48; /* Warm gold text on white background - elegant contrast */
-            border-color: #d48c48; /* Gold border on hover for consistency */
+        /* Vertical Choice Bar */
+        .vertical-bar {
+            width: 3px;
+            height: 45px;
+            transform-origin: center;
+        }
+
+        /* Horizontal Choice Bar */
+        .horizontal-bar {
+            width: 45px;
+            height: 3px;
+            transform-origin: center;
+        }
+
+        /* Hover animations for the bars */
+        .bar-link:hover {
+            background-color: #aaa;
+        }
+        
+        .vertical-bar:hover {
+            transform: scaleY(1.6); /* Stretches taller on hover */
+        }
+
+        .horizontal-bar:hover {
+            transform: scaleX(1.6); /* Stretches wider on hover */
         }
 
         /* Revealed State Classes */
@@ -132,55 +183,61 @@
             opacity: 1;
         }
 
-        .revealed h1, .revealed .btn-container {
+        .revealed h1, 
+        .revealed .cross-container, 
+        .revealed .bar-container {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
     </style>
 </head>
 <body>
 
     <div id="overlay"></div>
-    <div id="here-text">here.</div>
+    <div id="choose-text">choose.</div>
 
     <div id="main-content">
         <h1>skaldsson experimental photography</h1>
-        <div class="btn-container">
-            <a href="vertical.html" class="btn">vertical</a>
-            <a href="horizontal.html" class="btn">horizontal</a>
+        
+        <div class="cross-container">
+            <div class="line-v"></div>
+            <div class="line-h"></div>
+        </div>
+
+        <div class="bar-container">
+            <a href="vertical.html" class="bar-link vertical-bar" aria-label="Vertical Gallery"></a>
+            
+            <a href="horizontal.html" class="bar-link horizontal-bar" aria-label="Horizontal Gallery"></a>
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const overlay = document.getElementById('overlay');
-            const hereText = document.getElementById('here-text');
+            const chooseText = document.getElementById('choose-text');
             const body = document.body;
 
-            // 1. Initial pause (Wait 2 seconds)
+            // 1. Initial pause on the pitch black screen (Wait 2 seconds)
             setTimeout(() => {
                 
-                // 2. Flicker animation
+                // 2. Trigger the flicker animation
                 overlay.classList.add('flicker');
 
-                // 3. Fade in "here." right after the flicker ends
+                // 3. Fade in the word "choose." right after the flicker ends
                 setTimeout(() => {
-                    hereText.style.opacity = '1';
+                    chooseText.style.opacity = '1';
                 }, 800);
 
             }, 2000);
 
-            // 4. Function to reveal the page
-            const revealPage = () => {
-                hereText.style.opacity = '0';
-                body.classList.add('revealed');
-            };
-
-            // 5. Automatic reveal removed: only clicking triggers the reveal now
-
-            // 6. Reveal the page on click handler (REMOVED clearTimeout logic)
-            hereText.addEventListener('click', () => {
-                revealPage();
+            // 4. Reveal the page ONLY when "choose." is clicked
+            chooseText.addEventListener('click', () => {
+                chooseText.style.opacity = '0';
+                // Wait briefly for text to fade before showing the rest
+                setTimeout(() => {
+                    body.classList.add('revealed');
+                    chooseText.style.display = 'none'; // Remove from flow so it can't be clicked again
+                }, 500); 
             });
         });
     </script>
