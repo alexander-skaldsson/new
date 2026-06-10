@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW28G0WP3P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-TW28G0WP3P");
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6209354407417435" crossorigin="anonymous"></script>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nature & Wildlife | Skaldsson</title>
+    
+    <meta name="google-adsense-account" content="ca-pub-6209354407417435">
+    <meta name="description" content="Alex Skaldsson Photography. Nature & Wildlife portfolio featuring pieces from the Miradas de Calatayud charity exhibition." />
+    <meta name="author" content="Alex Skaldsson" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="canonical" href="https://skaldsson.art/Nature&Wildlife.html" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --bg: #050505; 
+        --text: #f4f4f0;
+        --text-muted: #777777;
+        --accent: #ff4a00;
+        --border: rgba(244, 244, 240, 0.1);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 300; 
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* Typography Setup */
+      h1, h2, h3, .brand {
+        font-family: 'Syncopate', sans-serif;
+        text-transform: uppercase;
+        color: var(--text);
+        line-height: 1.1;
+      }
+
+      /* Header */
+      .site-header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+        background: rgba(5, 5, 5, 0.85);
+        backdrop-filter: blur(12px);
+        padding: 1.5vw 4vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom 0.3s ease;
+      }
+      .site-header.scrolled { border-bottom: 1px solid var(--border); }
+      .brand { font-size: clamp(1.2rem, 1.5vw, 2rem); letter-spacing: -0.05em; text-decoration: none;}
+
+      .header-right { display: flex; align-items: center; gap: 3vw; }
+      .nav { display: flex; gap: 2vw; }
+      .nav a { 
+        font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; 
+        font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.3s ease;
+      }
+      .nav a:hover, .nav a.active { color: var(--text); }
+      .nav a.active { border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+
+      .lang-switch { display: flex; gap: 1rem; align-items: center; }
+      .lang-btn {
+        background: transparent; border: none; color: var(--text-muted);
+        cursor: pointer; font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; transition: color 0.3s ease;
+      }
+      .lang-btn.active { color: var(--text); }
+      .lang-btn:hover:not(.active) { color: var(--accent); }
+
+      /* Fine Art Hero Layout */
+      .exhibition-intro {
+        padding: 22vh 4vw 8vh;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      @media (min-width: 900px) {
+        .exhibition-intro {
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+        .title-col { flex: 1; }
+        .desc-col { flex: 1; display: flex; justify-content: flex-end; }
+      }
+
+      .title-col .eyebrow {
+        font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.3em;
+        color: var(--text-muted); margin-bottom: 1.5rem; display: block;
+      }
+      .title-col h1 { font-size: clamp(3.5rem, 8vw, 8rem); letter-spacing: -0.04em; }
+
+      .hero-cta {
+        font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+        color: var(--text);
+        text-decoration: none;
+        display: inline-block;
+        padding-bottom: 0.3rem;
+        border-bottom: 1px solid var(--text-muted);
+        transition: all 0.3s ease;
+      }
+      .hero-cta:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      /* Editorial Quote Placard */
+      .charity-placard {
+        margin: 0 4vw 6vh;
+        padding: 8vh 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+      }
+      
+      .quote-text {
+        font-family: 'Syncopate', sans-serif;
+        font-size: clamp(1.5rem, 3.5vw, 3rem);
+        line-height: 1.3;
+        color: var(--text);
+        max-width: 90%;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+      }
+      .quote-text span {
+        color: var(--accent);
+      }
+      
+      .charity-desc {
+        font-size: clamp(1rem, 1.2vw, 1.2rem);
+        color: #bbbbbb;
+        max-width: 800px;
+        line-height: 1.8;
+      }
+      .charity-desc a {
+        color: var(--text); text-decoration: none;
+        border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.3s;
+      }
+      .charity-desc a:hover { color: var(--accent); }
+
+      /* Horizontal Scrolling Categories */
+      .category-section {
+        margin-bottom: 10vh;
+        position: relative;
+      }
+      
+      .category-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 4vw;
+        margin-bottom: 3vh;
+      }
+      
+      .category-title {
+        font-size: clamp(2rem, 4vw, 4rem);
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+
+      .carousel-controls {
+        display: flex;
+        gap: 1rem;
+      }
+      
+      .ctrl-btn {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .ctrl-btn:hover {
+        background: var(--text);
+        color: var(--bg);
+        border-color: var(--text);
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: 3vw;
+        padding: 0 4vw 2vw 4vw;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+      }
+      .carousel-track::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+
+      .artwork {
+        flex: 0 0 auto;
+        height: 65vh;
+        scroll-snap-align: center;
+        position: relative;
+        cursor: zoom-in;
+        overflow: hidden;
+      }
+
+      .artwork img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        display: block;
+        transition: transform 1.2s ease, filter 0.8s ease;
+        filter: brightness(0.85) grayscale(15%);
+      }
+      .artwork:hover img { transform: scale(1.02); filter: brightness(1) grayscale(0%); }
+
+      /* Gradient overlay for text readability */
+      .artwork::after {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
+      }
+      .artwork:hover::after { opacity: 1; }
+
+      .artwork-label {
+        position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2;
+        opacity: 0; transform: translateY(10px); transition: all 0.4s ease; pointer-events: none;
+      }
+      .artwork:hover .artwork-label { opacity: 1; transform: translateY(0); }
+
+      .artwork-title { font-family: 'Syncopate', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.2rem; }
+      .artwork-meta { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed; inset: 0; display: none; place-items: center;
+        background: rgba(5, 5, 5, 0.98); z-index: 2000; padding: 2vw;
+      }
+      .lightbox.open { display: grid; }
+      .lightbox-stage { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+      .lightbox img { max-height: 90vh; max-width: 90vw; object-fit: contain; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+      
+      .lightbox-btn {
+        position: absolute; background: transparent; color: var(--text); border: none; cursor: pointer;
+        font-family: 'Space Grotesk', sans-serif; font-size: 2rem; transition: color 0.3s ease; z-index: 10; padding: 1rem;
+      }
+      .lightbox-btn:hover { color: var(--accent); }
+      .lightbox-prev { left: 0; top: 50%; transform: translateY(-50%); }
+      .lightbox-next { right: 0; top: 50%; transform: translateY(-50%); }
+      .lightbox-close { top: 0; right: 0; font-size: 1.5rem; }
+
+      /* Footer */
+      .footer { padding: 4vw; text-align: left; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); display: flex; justify-content: space-between;}
+
+      /* Mobile */
+      @media (max-width: 900px) {
+        .nav { display: none; }
+        .artwork { height: 50vh; }
+        .artwork::after { opacity: 1; }
+        .artwork-label { opacity: 1; transform: translateY(0); } 
+        .quote-text { font-size: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <a href="index.html" class="brand">Skaldsson</a>
+      <div class="header-right">
+        <nav class="nav">
+          <a href="Nature&Wildlife.html" class="active" data-i18n="navNature">Nature & Wildlife</a>
+          <a href="SocialWorks.html" data-i18n="navSocial">Social Works</a>
+          <a href="mailto:contact@skaldsson.art" data-i18n="navContact">Contact</a>
+        </nav>
+        <div class="lang-switch">
+          <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">EN</button>
+          <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ES</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="exhibition-intro">
+        <div class="title-col">
+          <span class="eyebrow" data-i18n="heroEyebrow">Vol. 01</span>
+          <h1 data-i18n="heroTitle">Gallery.</h1>
+        </div>
+        <div class="desc-col">
+          <a href="SocialWorks.html" class="hero-cta" data-i18n="heroCopy">Help this gallery make a difference.</a>
+        </div>
+      </section>
+
+      <section class="charity-placard">
+        <h2 class="quote-text" data-i18n="quoteText">
+          Our world has only two dimensions — <span>Vertical</span> and <span>Horizontal</span>. Depth is relative.
+        </h2>
+        <p class="charity-desc" data-i18n="noticeText">
+          This isn't a standard collection. Many of the pieces featured below form the visual foundation of my upcoming charity exhibition, <strong>"Miradas de Calatayud: Arte por la Infancia."</strong> While these images capture the quiet serenity of nature, they serve a greater purpose: 100% of the net profits from their sale will be donated directly to Save the Children Spain to combat child poverty. See the <a href='SocialWorks.html'>Social Works</a> page to learn more.
+        </p>
+      </section>
+
+      <div id="gallery-container">
+        </div>
+
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Alex Skaldsson.</div>
+      <div>Curated Photography</div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-btn lightbox-close" id="lightboxClose">✕</button>
+      <div class="lightbox-stage">
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev">‹</button>
+        <img id="lightboxImage" src="" alt="" />
+        <button class="lightbox-btn lightbox-next" id="lightboxNext">›</button>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      const i18n = {
+        en: {
+          navNature: "Nature & Wildlife",
+          navSocial: "Social Works",
+          navContact: "Contact",
+          heroEyebrow: "Vol. 01",
+          heroTitle: "Gallery.",
+          heroCopy: "Help this gallery make a difference.",
+          quoteText: "Our world has only two dimensions — <span>Vertical</span> and <span>Horizontal</span>. Depth is relative.",
+          noticeText: "This isn't a standard collection. Many of the pieces featured below form the visual foundation of my upcoming charity exhibition, <strong>\"Miradas de Calatayud: Arte por la Infancia.\"</strong> While these images capture the quiet serenity of nature, they serve a greater purpose: 100% of the net profits from their sale will be donated directly to Save the Children Spain to combat child poverty. See the <a href='SocialWorks.html'>Social Works</a> page to learn more.",
+          catDark: "Dark",
+          catLight: "Light",
+          catUp: "Up",
+          catDown: "Down"
+        },
+        es: {
+          navNature: "Naturaleza",
+          navSocial: "Obra Social",
+          navContact: "Contacto",
+          heroEyebrow: "Vol. 01",
+          heroTitle: "Galería.",
+          heroCopy: "Ayuda a esta galería a marcar la diferencia.",
+          quoteText: "Nuestro mundo solo tiene dos dimensiones — <span>Vertical</span> y <span>Horizontal</span>. La profundidad es relativa.",
+          noticeText: "Esta no es una colección estándar. Muchas de las obras presentadas a continuación forman la base visual de mi próxima exposición benéfica, <strong>\"Miradas de Calatayud: Arte por la Infancia.\"</strong> Aunque estas imágenes capturan la serena tranquilidad de la naturaleza, tienen un propósito mayor: el 100% de los beneficios netos de su venta se donará directamente a Save the Children España para combatir la pobreza infantil. Visita la página de <a href='SocialWorks.html'>Obra Social</a> para saber más.",
+          catDark: "Oscuro",
+          catLight: "Luz",
+          catUp: "Arriba",
+          catDown: "Abajo"
+        }
+      };
+
+      function setLanguage(lang) {
+        document.getElementById('btn-en').classList.remove('active');
+        document.getElementById('btn-es').classList.remove('active');
+        document.getElementById('btn-' + lang).classList.add('active');
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (i18n[lang] && i18n[lang][key]) {
+             el.style.opacity = 0; 
+             setTimeout(() => {
+                 el.innerHTML = i18n[lang][key]; 
+                 el.style.opacity = 1; 
+             }, 300);
+             el.style.transition = 'opacity 0.3s ease';
+          }
+        });
+      }
+
+      const photos = [
+        // DARK
+        { src: "He looks after you.jpg", title: "He Looks After You", meta: "Solitude", category: "dark" },
+        { src: "Pre-Historic Stare.jpg", title: "Pre-Historic Stare", meta: "Wildlife", category: "dark" },
+        { src: "Dark Energy.jpg", title: "Dark Energy", meta: "Nature", category: "dark" },
+        { src: "Lonely Church.jpg", title: "Lonely Church", meta: "Landscape", category: "dark" },
+        { src: "Spanish Mountain during Sunset.jpg", title: "Mountain Sunset", meta: "Spain", category: "dark" },
+        { src: "Sandy Skies.jpg", title: "Sandy Skies", meta: "Sky", category: "dark" },
+        { src: "Cause and Effect.jpg", title: "Cause and Effect", meta: "Nature", category: "dark" },
+        { src: "Grey Skies.jpg", title: "Grey Skies", meta: "Landscape", category: "dark" },
+        { src: "Pre-Historic S.jpg", title: "Pre-Historic", meta: "Landscape", category: "dark" },
+        { src: "Dark Day.jpg", title: "Dark Day", meta: "Landscape", category: "dark" },
+
+        // LIGHT
+        { src: "Snowy Bliss.jpg", title: "Snowy Bliss", meta: "Landscape", category: "light" },
+        { src: "Hang in there.jpg", title: "Hang in There", meta: "Nature", category: "light" },
+        { src: "A simple flower.jpg", title: "A Simple Flower", meta: "Nature", category: "light" },
+        { src: "Church Tower Spain.jpg", title: "Church Tower", meta: "Spain", category: "light" },
+        { src: "Fresh Trees.jpg", title: "Fresh Trees", meta: "Nature", category: "light" },
+        { src: "Green Fields.jpg", title: "Green Fields", meta: "Landscape", category: "light" },
+        { src: "Lonely Tower.jpg", title: "Lonely Tower", meta: "Solitude", category: "light" },
+        { src: "Pillowy Mountains.jpg", title: "Pillowy Mountains", meta: "Mountains", category: "light" },
+        { src: "Stork Family.jpg", title: "Stork Family", meta: "Wildlife", category: "light" },
+        { src: "Zaragoza.jpg", title: "Zaragoza", meta: "Spain", category: "light" },
+        { src: "Top of the mountain.jpg", title: "Top of the Mountain", meta: "Mountains", category: "light" },
+        { src: "Sunset Hills.jpg", title: "Sunset Hills", meta: "Landscape", category: "light" },
+        { src: "Green Hills.jpg", title: "Green Hills", meta: "Landscape", category: "light" },
+        { src: "It Shines on You.jpg", title: "It Shines On You", meta: "Solitude", category: "light" },
+        { src: "Golden Winding Fields.jpg", title: "Golden Winding Fields", meta: "Landscape", category: "light" },
+        { src: "Desert sunset.jpg", title: "Desert Sunset", meta: "Landscape", category: "light" },
+        { src: "Mountain Road.jpg", title: "Mountain Road", meta: "Landscape", category: "light" },
+        { src: "Mountain Trees.jpg", title: "Mountain Trees", meta: "Landscape", category: "light" },
+        { src: "Peaceful Hills.jpg", title: "Peaceful Hills", meta: "Landscape", category: "light" },
+        { src: "Thunderous Sky.jpg", title: "Thunderous Sky", meta: "Nature", category: "light" },
+
+        // UP
+        { src: "Asp Viper.jpg", title: "Asp Viper", meta: "Wildlife", category: "up" },
+        { src: "Stand Alone.jpg", title: "Stand Alone", meta: "Solitude", category: "up" },
+        { src: "A lonely sunset.jpg", title: "A Lonely Sunset", meta: "Solitude", category: "up" },
+        { src: "Castle at Sunset.jpg", title: "Castle at Sunset", meta: "Landscape", category: "up" },
+        { src: "Spring Green.jpg", title: "Spring Green", meta: "Landscape", category: "up" },
+        { src: "Grazing Sheep.jpg", title: "Grazing Sheep", meta: "Wildlife", category: "up" },
+        { src: "Lonely Church on a Hill.jpg", title: "Lonely Church on a Hill", meta: "Landscape", category: "up" },
+        { src: "Mid-Flight Stork.jpg", title: "Mid-Flight Stork", meta: "Wildlife", category: "up" },
+        { src: "Rock Pile.jpg", title: "Rock Pile", meta: "Nature", category: "up" },
+        { src: "Spanish Landscape.jpg", title: "Spanish Landscape", meta: "Spain", category: "up" },
+        { src: "Water Rush.jpg", title: "Water Rush", meta: "Nature", category: "up" },
+        { src: "Piramid Mountain.jpg", title: "Piramid Mountain", meta: "Mountains", category: "up" },
+        { src: "Lonely Tree.jpg", title: "Lonely Tree", meta: "Nature", category: "up" },
+        { src: "lonely storks.jpg", title: "Lonely Storks", meta: "Wildlife", category: "up" },
+        { src: "Mountain Path.jpg", title: "Mountain Path", meta: "Landscape", category: "up" },
+        { src: "Approaching Storm.jpg", title: "Approaching Storm", meta: "Nature", category: "up" },
+        { src: "Forest Refuge.jpg", title: "Forest Refuge", meta: "Nature", category: "up" },
+        { src: "Golden Sunset.jpg", title: "Golden Sunset", meta: "Landscape", category: "up" },
+        { src: "Windwing Road.jpg", title: "Windwing Road", meta: "Landscape", category: "up" },
+        { src: "An ending day.jpg", title: "An Ending Day", meta: "Landscape", category: "up" },
+        { src: "Lonely Road.jpg", title: "Lonely Road", meta: "Landscape", category: "up" },
+        { src: "Solitary.jpg", title: "Solitary", meta: "Solitude", category: "up" },
+
+        // DOWN
+        { src: "NEAR DARK-2.jpg", title: "Near Dark", meta: "Night", category: "down" },
+        { src: "Dark Forest.jpg", title: "Dark Forest", meta: "Nature", category: "down" },
+        { src: "Hunting.jpg", title: "Hunting", meta: "Wildlife", category: "down" },
+        { src: "Rainy Sunset.jpg", title: "Rainy Sunset", meta: "Nature", category: "down" },
+        { src: "Green Desert.jpg", title: "Green Desert", meta: "Landscape", category: "down" },
+        { src: "Lonely Christ in the Desert.jpg", title: "Christ in the Desert", meta: "Figure", category: "down" },
+        { src: "Red Hill.jpg", title: "Red Hill", meta: "Landscape", category: "down" },
+        { src: "Towering Mountain.jpg", title: "Towering Mountain", meta: "Landscape", category: "down" },
+        { src: "Framing Hill.jpg", title: "Framing Hill", meta: "Landscape", category: "down" },
+        { src: "Roads.jpg", title: "Roads", meta: "Landscape", category: "down" },
+        { src: "Dark sunset.jpg", title: "Dark Sunset", meta: "Landscape", category: "down" },
+        { src: "Behind the clouds.jpg", title: "Behind the Clouds", meta: "Sky", category: "down" },
+        { src: "Lonely Castle.jpg", title: "Lonely Castle", meta: "Landscape", category: "down" },
+        { src: "Nature Takes All.jpg", title: "Nature Takes All", meta: "Nature", category: "down" },
+        { src: "Road to Nowhere.jpg", title: "Road to Nowhere", meta: "Landscape", category: "down" },
+        { src: "Thunderous Sky above mountains.jpg", title: "Thunderous Sky Above Mountains", meta: "Mountains", category: "down" }
+      ];
+
+      // Assign global indexes to keep lightbox sequence intact across all sections
+      photos.forEach((p, index) => p.globalIndex = index);
+
+      const categories = [
+        { id: 'dark', i18n: 'catDark', default: 'Dark' },
+        { id: 'light', i18n: 'catLight', default: 'Light' },
+        { id: 'up', i18n: 'catUp', default: 'Up' },
+        { id: 'down', i18n: 'catDown', default: 'Down' }
+      ];
+
+      const galleryContainer = document.getElementById("gallery-container");
+
+      function scrollTrack(trackId, direction) {
+        const track = document.getElementById(trackId);
+        const scrollAmount = window.innerWidth * 0.6; // Slides over smoothly by 60vw
+        track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+      }
+
+      categories.forEach(cat => {
+        const catPhotos = photos.filter(p => p.category === cat.id);
+        if (catPhotos.length === 0) return;
+
+        const section = document.createElement("section");
+        section.className = "category-section";
+
+        const headerHtml = `
+          <div class="category-header">
+            <h2 class="category-title" data-i18n="${cat.i18n}">${cat.default}</h2>
+            <div class="carousel-controls">
+              <button class="ctrl-btn" onclick="scrollTrack('track-${cat.id}', -1)">&#8592;</button>
+              <button class="ctrl-btn" onclick="scrollTrack('track-${cat.id}', 1)">&#8594;</button>
+            </div>
+          </div>
+        `;
+
+        const trackHtml = document.createElement("div");
+        trackHtml.className = "carousel-track";
+        trackHtml.id = `track-${cat.id}`;
+
+        catPhotos.forEach(photo => {
+          const div = document.createElement("div");
+          div.className = "artwork";
+          div.innerHTML = `
+            <img src="${encodeURI(photo.src)}" alt="${photo.title}" loading="lazy" />
+            <div class="artwork-label">
+              <div class="artwork-title">${photo.title}</div>
+              <div class="artwork-meta">${photo.meta}</div>
+            </div>
+          `;
+          div.addEventListener("click", () => openLightbox(photo.globalIndex));
+          trackHtml.appendChild(div);
+        });
+
+        section.innerHTML = headerHtml;
+        section.appendChild(trackHtml);
+        galleryContainer.appendChild(section);
+      });
+
+      // Lightbox functionality intact
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImage");
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = encodeURI(photos[currentIndex].src);
+        lightboxImg.alt = photos[currentIndex].title;
+        lightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function navigate(direction) {
+        currentIndex = (currentIndex + direction + photos.length) % photos.length;
+        lightboxImg.src = encodeURI(photos[currentIndex].src);
+        lightboxImg.alt = photos[currentIndex].title;
+      }
+
+      document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+      document.getElementById("lightboxPrev").addEventListener("click", (e) => { e.stopPropagation(); navigate(-1); });
+      document.getElementById("lightboxNext").addEventListener("click", (e) => { e.stopPropagation(); navigate(1); });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") navigate(-1);
+        if (e.key === "ArrowRight") navigate(1);
+      });
+      
+      // Initialize language text based on active button
+      setLanguage('en');
+    </script>
+  </body>
+</html>
