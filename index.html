@@ -72,7 +72,6 @@
             width: 100%;
             height: 100%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
@@ -80,97 +79,60 @@
             transition: opacity 3s ease-in-out;
         }
 
-        /* Typography */
-        h1 {
-            color: #fff;
-            font-size: clamp(1.2rem, 2vw, 2rem);
-            letter-spacing: 4px;
-            text-transform: lowercase;
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 2s ease 1s, transform 2s ease 1s;
-            position: absolute;
-            top: 10%;
-        }
-
-        /* Skewed Cross - Pure CSS */
+        /* Giant Skewed Cross */
         .cross-container {
             position: relative;
-            width: 300px;
-            height: 300px;
+            /* Takes up 90% of the viewport */
+            width: 90vw;
+            height: 90vh;
+            max-width: 1400px;
+            max-height: 1400px;
             opacity: 0;
             transform: scale(0.9);
-            transition: opacity 2.5s ease 1.2s, transform 2.5s ease 1.2s;
-            margin-bottom: 40px;
+            transition: opacity 2.5s ease 0.5s, transform 2.5s ease 0.5s;
+        }
+
+        /* The Lines as Links */
+        .line-link {
+            display: block;
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50px; /* Makes the edges highly rounded */
+            transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        /* Hover effect to show they are distinct, clickable paths */
+        .line-link:hover {
+            background-color: #888; /* shifts to grey to indicate it's active */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            z-index: 5; /* Brings hovered line to the front of the intersection */
         }
 
         /* The vertical-ish line */
         .line-v {
-            position: absolute;
             top: 5%;
-            left: 42%;
-            width: 2px;
+            left: 45%;
+            width: 12px; /* Thicker */
             height: 90%;
-            background-color: #fff;
             transform: rotate(14deg); /* Skewed angle */
+        }
+
+        .line-v:hover {
+            transform: rotate(14deg) scale(1.02);
         }
 
         /* The horizontal-ish line */
         .line-h {
-            position: absolute;
-            top: 55%;
+            top: 48%;
             left: 5%;
             width: 90%;
-            height: 2px;
-            background-color: #fff;
-            transform: rotate(-9deg); /* Skewed angle, not perfectly crossed */
+            height: 12px; /* Thicker */
+            transform: rotate(-9deg); /* Skewed angle */
         }
 
-        /* The Geometric Bar Links */
-        .bar-container {
-            display: flex;
-            gap: 80px;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 2s ease 1.8s, transform 2s ease 1.8s;
-            height: 80px; /* Gives a fixed area so scaling doesn't shift layout */
-        }
-
-        .bar-link {
-            display: block;
-            background-color: #fff;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Vertical Choice Bar */
-        .vertical-bar {
-            width: 3px;
-            height: 45px;
-            transform-origin: center;
-        }
-
-        /* Horizontal Choice Bar */
-        .horizontal-bar {
-            width: 45px;
-            height: 3px;
-            transform-origin: center;
-        }
-
-        /* Hover animations for the bars */
-        .bar-link:hover {
-            background-color: #aaa;
-        }
-        
-        .vertical-bar:hover {
-            transform: scaleY(1.6); /* Stretches taller on hover */
-        }
-
-        .horizontal-bar:hover {
-            transform: scaleX(1.6); /* Stretches wider on hover */
+        .line-h:hover {
+            transform: rotate(-9deg) scale(1.02);
         }
 
         /* Revealed State Classes */
@@ -183,11 +145,9 @@
             opacity: 1;
         }
 
-        .revealed h1, 
-        .revealed .cross-container, 
-        .revealed .bar-container {
+        .revealed .cross-container {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: scale(1);
         }
     </style>
 </head>
@@ -197,17 +157,10 @@
     <div id="choose-text">choose.</div>
 
     <div id="main-content">
-        <h1>skaldsson experimental photography</h1>
-        
         <div class="cross-container">
-            <div class="line-v"></div>
-            <div class="line-h"></div>
-        </div>
-
-        <div class="bar-container">
-            <a href="vertical.html" class="bar-link vertical-bar" aria-label="Vertical Gallery"></a>
+            <a href="vertical.html" class="line-link line-v" aria-label="Vertical Gallery"></a>
             
-            <a href="horizontal.html" class="bar-link horizontal-bar" aria-label="Horizontal Gallery"></a>
+            <a href="horizontal.html" class="line-link line-h" aria-label="Horizontal Gallery"></a>
         </div>
     </div>
 
@@ -233,10 +186,11 @@
             // 4. Reveal the page ONLY when "choose." is clicked
             chooseText.addEventListener('click', () => {
                 chooseText.style.opacity = '0';
-                // Wait briefly for text to fade before showing the rest
+                
+                // Wait briefly for text to fade before showing the giant cross
                 setTimeout(() => {
                     body.classList.add('revealed');
-                    chooseText.style.display = 'none'; // Remove from flow so it can't be clicked again
+                    chooseText.style.display = 'none'; 
                 }, 500); 
             });
         });
