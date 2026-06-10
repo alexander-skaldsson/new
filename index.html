@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography with a Purpose | Skaldsson</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Inverted: Dark background, light text */
+      --bg: #050505; 
+      --text: #f4f4f0;
+      --text-muted: #666666;
+      --accent: #ff4a00; /* Sharp, aggressive accent color */
+    }
+    
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      height: 100vh;
+      overflow: hidden; /* Locks view, forcing focus */
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Split screen layout */
+    }
+
+    /* --- LEFT SIDE: TYPOGRAPHY & CONTEXT --- */
+    .content-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 4vw;
+      position: relative;
+    }
+
+    .brand {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 1.5vw;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      transition: opacity 0.3s ease;
+    }
+
+    .title-block h1 {
+      font-family: 'Syncopate', sans-serif;
+      font-size: clamp(2.5rem, 5.5vw, 7rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .title-block p {
+      font-size: clamp(1rem, 1.2vw, 1.25rem);
+      font-weight: 300;
+      max-width: 80%;
+      line-height: 1.5;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+      color: #cccccc;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .footer-nav a {
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      position: relative;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .footer-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Language Switcher Styling */
+    .lang-switch {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+    }
+
+    .lang-btn.active {
+      color: var(--text);
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: var(--accent);
+    }
+
+    /* --- RIGHT SIDE: IMMERSIVE MEDIA --- */
+    .media-side {
+      position: relative;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Grayscale filter for striking gallery look */
+      filter: grayscale(100%) contrast(1.1);
+      transition: filter 0.8s ease, transform 1.5s ease;
+    }
+
+    .media-side:hover .hero-image {
+      filter: grayscale(0%) contrast(1); /* Color reveals on hover */
+      transform: scale(1.03); /* Subtle zoom */
+    }
+
+    /* Interactive Dive IN button */
+    .data-tag {
+      position: absolute;
+      bottom: 4vw;
+      right: 4vw;
+      background: rgba(244, 244, 240, 0.95);
+      color: #050505;
+      padding: 1.2rem 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .data-tag:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Responsive single-column stack for mobile */
+    @media (max-width: 900px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 50vh;
+        overflow-y: auto;
+      }
+      .content-side { gap: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content-side">
+    <div class="brand" data-i18n="brand">Skaldsson</div>
+    
+    <div class="title-block">
+      <h1 data-i18n="title">Photography<br>With A<br>Purpose.</h1>
+      <p data-i18n="desc">Fine art nature photography. Quiet moments in the wild and stories that matter.</p>
+    </div>
+
+    <div class="footer-nav">
+      <a href="mailto:contact@skaldsson.art" data-i18n="contact">Contact</a>
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" id="btn-es" onclick="setLanguage('es')">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="media-side">
+    <!-- Updated image path as requested -->
+    <img src="Pre-Historic S.jpg" alt="Pre-Historic Nature Photography" class="hero-image" />
+    
+    <!-- Dive IN button acting as hyperlink -->
+    <a href="Nature&Wildlife.html" class="data-tag" data-i18n="diveIn">Dive IN</a>
+  </div>
+
+  <script>
+    // Multi-language System Dictionary
+    const i18n = {
+      en: {
+        brand: "Skaldsson",
+        title: "Photography<br>With A<br>Purpose.",
+        desc: "Fine art nature photography. Quiet moments in the wild and stories that matter.",
+        contact: "Contact",
+        diveIn: "Dive IN"
+      },
+      es: {
+        brand: "Skaldsson",
+        title: "Fotografía<br>Con Un<br>Propósito.",
+        desc: "Fotografía de naturaleza de bellas artes. Momentos tranquilos en la naturaleza e historias que importan.",
+        contact: "Contacto",
+        diveIn: "Sumérgete"
+      }
+    };
+
+    // Functional Language Switcher
+    function setLanguage(lang) {
+      // Toggle active states on buttons
+      document.getElementById('btn-en').classList.remove('active');
+      document.getElementById('btn-es').classList.remove('active');
+      document.getElementById('btn-' + lang).classList.add('active');
+      
+      // Apply fade out
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        el.style.opacity = '0';
+      });
+      
+      // Swap text and fade in after a short delay
+      setTimeout(() => {
+        elements.forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (i18n[lang] && i18n[lang][key]) {
+            el.innerHTML = i18n[lang][key];
+          }
+          el.style.opacity = '1';
+        });
+      }, 300); // 300ms matches the CSS transition time
+    }
+  </script>
+</body>
+</html>
