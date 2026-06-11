@@ -27,16 +27,50 @@
         .bottom-left { bottom: 40px; left: 50px; }
         .bottom-right { bottom: 40px; right: 50px; }
         
-        .center-mark {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 1px; height: 20px; /* Switched to vertical tick for the vertical page */
-            background-color: #222; 
+        /* The Small White Center X (Pure CSS geometry) */
+        .center-x {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px; /* Size of the X */
+            height: 18px;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+            z-index: 10;
+        }
+
+        .center-x::before, .center-x::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1.5px; /* Thickness of the lines */
+            background-color: #fff;
+            transition: background-color 0.4s ease;
+        }
+
+        .center-x::before {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .center-x::after {
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        .center-x:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        .center-x:hover::before, .center-x:hover::after {
+            background-color: #888;
         }
     </style>
 </head>
 <body>
 
-    <div class="center-mark"></div>
+    <a href="index.html" class="center-x" aria-label="Return to index"></a>
 
     <a href="danger.html" class="corner-link top-left">danger.</a>
     <a href="water.html" class="corner-link top-right">water.</a>
