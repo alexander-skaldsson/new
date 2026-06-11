@@ -135,6 +135,34 @@
             transform: rotate(-9deg) scale(1.02);
         }
 
+        /* Contact Info Block */
+        #contact-box {
+            position: fixed;
+            bottom: 40px;
+            right: 50px;
+            text-align: right;
+            color: #fff;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            line-height: 1.8;
+            opacity: 0;
+            z-index: 10;
+            transform: translateY(10px);
+            transition: opacity 2s ease 1.5s, transform 2s ease 1.5s; /* Delays appearance until after cross is visible */
+            pointer-events: none; /* Initially unclickable */
+        }
+
+        #contact-box a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.4s ease;
+            pointer-events: auto; /* Make the link clickable */
+        }
+
+        #contact-box a:hover {
+            color: #888;
+        }
+
         /* Revealed State Classes */
         .revealed #overlay {
             opacity: 0;
@@ -149,51 +177,15 @@
             opacity: 1;
             transform: scale(1);
         }
+
+        .revealed #contact-box {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body>
 
     <div id="overlay"></div>
     <div id="choose-text">choose.</div>
-
-    <div id="main-content">
-        <div class="cross-container">
-            <a href="vertical.html" class="line-link line-v" aria-label="Vertical Gallery"></a>
-            
-            <a href="horizontal.html" class="line-link line-h" aria-label="Horizontal Gallery"></a>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const overlay = document.getElementById('overlay');
-            const chooseText = document.getElementById('choose-text');
-            const body = document.body;
-
-            // 1. Initial pause on the pitch black screen (Wait 2 seconds)
-            setTimeout(() => {
-                
-                // 2. Trigger the flicker animation
-                overlay.classList.add('flicker');
-
-                // 3. Fade in the word "choose." right after the flicker ends
-                setTimeout(() => {
-                    chooseText.style.opacity = '1';
-                }, 800);
-
-            }, 2000);
-
-            // 4. Reveal the page ONLY when "choose." is clicked
-            chooseText.addEventListener('click', () => {
-                chooseText.style.opacity = '0';
-                
-                // Wait briefly for text to fade before showing the giant cross
-                setTimeout(() => {
-                    body.classList.add('revealed');
-                    chooseText.style.display = 'none'; 
-                }, 500); 
-            });
-        });
-    </script>
-</body>
-</html>
