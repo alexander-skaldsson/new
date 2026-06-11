@@ -17,72 +17,97 @@
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+        /* Responsive Gallery Layout */
         .gallery-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px;
-            padding: 100px 80px 150px 80px; max-width: 1600px; margin: 0 auto;
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 60px;
+            padding: 100px 80px 150px 80px; 
+            max-width: 1600px; 
+            margin: 0 auto;
         }
 
-        .gallery-item { display: flex; flex-direction: column; align-items: flex-end; }
+        .gallery-item { display: flex; flex-direction: column; }
+        
         .gallery-item img {
-            width: 100%; height: auto; filter: grayscale(100%) contrast(1.2); transition: filter 0.5s ease;
+            width: 100%; height: auto; 
+            filter: grayscale(100%) contrast(1.2); 
+            transition: filter 0.5s ease, transform 0.4s ease;
+            cursor: zoom-in; 
         }
+        
         .gallery-item:hover img { filter: grayscale(0%) contrast(1); }
 
-        .more-link {
-            margin-top: 15px; color: #fff; text-decoration: none;
-            font-size: 1.1rem; letter-spacing: 2px; cursor: pointer;
-            transition: transform 0.4s ease, opacity 0.4s ease, color 0.4s ease;
+        /* Full Screen Modal */
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            background-color: rgba(0, 0, 0, 0.95); 
+            opacity: 0; transition: opacity 0.3s ease;
+            cursor: zoom-out;
+            display: flex; justify-content: center; align-items: center;
+            visibility: hidden;
         }
 
-        .more-link.ready { color: #aaa; text-decoration: underline; text-underline-offset: 4px; }
-        .more-link.ready:hover { color: #fff; }
+        .modal.show { visibility: visible; opacity: 1; }
+        .modal-content { max-width: 95vw; max-height: 95vh; object-fit: contain; box-shadow: 0 0 40px rgba(0,0,0,0.8); }
 
+        /* Return Button */
         .return-btn {
             position: fixed; bottom: 40px; left: 50px;
             color: #fff; text-decoration: none; font-size: 1.2rem;
             letter-spacing: 2px; z-index: 100; transition: color 0.3s ease;
         }
         .return-btn:hover { color: #555; }
+
+        /* Mobile Repair */
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: 1fr; 
+                padding: 60px 20px 120px 20px; 
+                gap: 40px;
+            }
+            .return-btn { bottom: 25px; left: 25px; font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
 
     <a href="horizontal.html" class="return-btn">don't like it</a>
 
+    <div id="image-modal" class="modal">
+        <img class="modal-content" id="full-image">
+    </div>
+
     <div class="gallery-container">
-        <div class="gallery-item">
-            <img src="animals/image1.jpg" alt="Animal Image">
-            <a href="#" class="more-link" data-ready="false" data-animating="false">more?</a>
-        </div>
-        <div class="gallery-item">
-            <img src="animals/image2.jpg" alt="Animal Image">
-            <a href="#" class="more-link" data-ready="false" data-animating="false">more?</a>
-        </div>
+        <div class="gallery-item"><img src="animals/Animals1.jpg" alt="Animal"></div>
+        <div class="gallery-item"><img src="animals/Animals2.jpg" alt="Animal"></div>
+        <div class="gallery-item"><img src="animals/Animals3.jpg" alt="Animal"></div>
+        <div class="gallery-item"><img src="animals/Animals4.jpg" alt="Animal"></div>
+        <div class="gallery-item"><img src="animals/Animals5.jpg" alt="Animal"></div>
+        <div class="gallery-item"><img src="animals/Animals6.jpg" alt="Animal"></div>
+        <div class="gallery-item"><img src="animals/Animals7.jpg" alt="Animal"></div>
+        <div class="gallery-item"><img src="animals/animals.jpg" alt="Animal"></div>
     </div>
 
     <script>
-        document.querySelectorAll('.more-link').forEach(link => {
-            link.addEventListener('click', (e) => { if (link.dataset.ready !== "true") e.preventDefault(); });
+        document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("full-image");
+            const galleryImages = document.querySelectorAll(".gallery-item img");
 
-            link.addEventListener('mouseenter', async (e) => {
-                if (link.dataset.animating === "true" || link.dataset.ready === "true") return;
-                link.dataset.animating = "true";
+            galleryImages.forEach(img => {
+                img.addEventListener("click", () => {
+                    modalImg.src = img.src; 
+                    modal.classList.add("show"); 
+                });
+            });
 
-                for (let i = 0; i < 3; i++) {
-                    link.style.transform = "translateX(8px) translateY(-4px)";
-                    link.style.opacity = "0";
-                    await new Promise(r => setTimeout(r, 350));
-                    
-                    link.textContent = "are you sure?";
-                    link.style.transform = "translateX(0) translateY(0)";
-                    link.style.opacity = "1";
-                    await new Promise(r => setTimeout(r, 600));
-                }
-
-                link.dataset.ready = "true";
-                link.dataset.animating = "false";
-                link.classList.add('ready');
-                link.href = "detailed-animal-view.html"; 
+            modal.addEventListener("click", () => {
+                modal.classList.remove("show"); 
+                setTimeout(() => {
+                    if (!modal.classList.contains("show")) modalImg.src = ""; 
+                }, 300); 
             });
         });
     </script>
