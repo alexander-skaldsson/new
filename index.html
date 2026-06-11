@@ -138,12 +138,10 @@
         /* Contact Corner Info */
         #contact-corner {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            color: #fff;
-            font-size: 0.9rem;
-            text-align: right;
-            letter-spacing: 1px;
+            bottom: 40px;
+            right: 50px; /* Matched the alignment of the choose text */
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             z-index: 10;
         }
 
@@ -186,8 +184,7 @@
         </div>
         
         <div id="contact-corner">
-            What?<br>
-            <a href="mailto:contact@skaldsson.art">contact@skaldsson.art</a>
+            <a href="#" id="email-link">What?</a>
         </div>
     </div>
 
@@ -196,6 +193,15 @@
             const overlay = document.getElementById('overlay');
             const chooseText = document.getElementById('choose-text');
             const body = document.body;
+            const emailLink = document.getElementById('email-link');
+
+            // Spam-proof email constructor
+            emailLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const user = "contact";
+                const domain = "skaldsson.art";
+                window.location.href = `mailto:${user}@${domain}`;
+            });
 
             // 1. Initial pause on the pitch black screen (Wait 2 seconds)
             setTimeout(() => {
