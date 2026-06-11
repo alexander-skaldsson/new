@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Galleries - Skaldsson</title>
+    <link rel="stylesheet" href="https://use.typekit.net/zie3yjb.css">
+    
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #000; font-family: "am-udine", sans-serif; font-weight: 400; overflow: hidden;
+            animation: fadeIn 2s ease-in-out forwards; opacity: 0;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        .corner-link {
+            position: absolute; color: #fff; text-decoration: none; font-size: 1.2rem;
+            letter-spacing: 2px; text-transform: lowercase; transition: color 0.4s ease, letter-spacing 0.4s ease;
+        }
+
+        .corner-link:hover { color: #888; letter-spacing: 5px; }
+
+        .top-left { top: 40px; left: 50px; }
+        .top-right { top: 40px; right: 50px; }
+        .bottom-left { bottom: 40px; left: 50px; }
+        .bottom-right { bottom: 40px; right: 50px; }
+        
+        .center-mark {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 1px; height: 20px; /* Switched to vertical tick for the vertical page */
+            background-color: #222; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center-mark"></div>
+
+    <a href="danger.html" class="corner-link top-left">danger.</a>
+    <a href="water.html" class="corner-link top-right">water.</a>
+    <a href="salvation.html" class="corner-link bottom-left">salvation.</a>
+    <a href="obsession.html" class="corner-link bottom-right">obsession.</a>
+
+</body>
+</html>
